@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\.18e8aa691f50f298f39b6b133a2e9d2e6d59e67f-audit.json",
+    "files": [
+        {
+            "date": 1784036171129,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-19-error.log",
+            "hash": "a6f498a21bdc9210c7933758b39f38e60ef32a2f401276f619dfa28bc80c3234"
+        },
+        {
+            "date": 1784039109406,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-20-error.log",
+            "hash": "039a3eb87aae2dd8987341227e3ceeaad3eb713cf61e863ba69f02b697df38f3"
+        },
+        {
+            "date": 1784041264998,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-21-error.log",
+            "hash": "3c3383dd6abc1f0545631a464f6ac5d62316ba67778bcd39941001fad823a4c3"
+        },
+        {
+            "date": 1784044829128,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-22-error.log",
+            "hash": "99f58a8a54ed6436af248f42abf17ca8ba865f59877000a1d123494753ab9aed"
+        }
+    ],
+    "hashType": "sha256"
+}

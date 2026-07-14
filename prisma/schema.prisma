@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Visibility {
+  PUBLIC
+  PRIVATE
+}
+
+// user model
+model User {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String   @unique
+  password  String // hashed with bcrypt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  posts        Post[]
+  comments     Comment[]
+  replies      Reply[]
+  postLikes    PostLike[]
+  commentLikes CommentLike[]
+  replyLikes   ReplyLike[]
+
+  @@index([email])
+}
+
+// post model
+model Post {
+  id         String     @id @default(cuid())
+  text       String
+  imageUrl   String?
+  visibility Visibility @default(PUBLIC)
+  authorId   String
+  author     User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  comments Comment[]
+  likes    PostLike[]
+
+  @@index([authorId])
+  @@index([createdAt])
+}
+
+// post comment model
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  replies Reply[]
+  likes   CommentLike[]
+
+  @@index([postId])
+  @@index([createdAt])
+}
+
+// post reply model
+model Reply {
+  id        String   @id @default(cuid())
+  content   String
+  commentId String
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  likes ReplyLike[]
+
+  @@index([commentId])
+  @@index([createdAt])
+}
+
+// post like model
+model PostLike {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+  @@index([postId])
+}
+
+// post comment like model
+model CommentLike {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  commentId String
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, commentId])
+  @@index([commentId])
+}
+
+// reply like model
+model ReplyLike {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  replyId   String
+  reply     Reply    @relation(fields: [replyId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, replyId])
+  @@index([replyId])
+}
+
+
+
+
+// npx prisma migrate dev --name init
+// npx prisma generate
+// npx prisma studio --port 5001
