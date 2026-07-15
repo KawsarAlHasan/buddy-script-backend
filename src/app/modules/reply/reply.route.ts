@@ -1,53 +1,16 @@
 import express from "express";
-import validateRequest from "../../../middlewares/validateRequest";
-import {
-  loginZodSchema,
-  resendCodeZodSchema,
-  setPasswordZodSchema,
-  signupZodSchema,
-  verifyEmailZodSchema,
-} from "./userAuth.validation";
-import {
-  forgotPassword,
-  permanentDeleteUser,
-  resendCode,
-  setPassword,
-  signUpNewUser,
-  userLogin,
-  verifyEmailOtp,
-  verifyOtp,
-} from "./userAuth.controller";
+import { createReply, getReplies, deleteReply } from "./reply.controller";
+import { userAuth } from "../../middlewares/auth";
+
 const router = express.Router();
 
-router.post("/signup", validateRequest(signupZodSchema), signUpNewUser);
-router.post(
-  "/verify-email",
-  validateRequest(verifyEmailZodSchema),
-  verifyEmailOtp,
-);
-router.post("/resend-code", validateRequest(resendCodeZodSchema), resendCode);
+// POST /api/comments/:commentId/replies - Create a reply
+router.post("/comments/:commentId/replies", userAuth(), createReply);
 
-// sign in
-router.post("/signin", validateRequest(loginZodSchema), userLogin);
+// GET /api/comments/:commentId/replies - Get all replies for a comment
+router.get("/comments/:commentId/replies", userAuth(), getReplies);
 
-router.post(
-  "/forgot-password",
-  validateRequest(resendCodeZodSchema),
-  forgotPassword,
-);
+// DELETE /api/replies/:replyId - Delete a reply
+router.delete("/replies/:replyId", userAuth(), deleteReply);
 
-router.post(
-  "/verify-otp",
-  validateRequest(verifyEmailZodSchema),
-  verifyOtp,
-);
-
-router.post(
-  "/set-password",
-  validateRequest(setPasswordZodSchema),
-  setPassword,
-);
-
-router.delete("/:id", permanentDeleteUser);
-
-export const UserAuthRoutes = router;
+export const ReplyRoutes = router;

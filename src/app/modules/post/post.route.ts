@@ -1,6 +1,6 @@
 import express from "express";
 import validateRequest from "../../middlewares/validateRequest";
-import { createNewPost, deletePost } from "./post.controller";
+import { createNewPost, deletePost, getAllPost } from "./post.controller";
 import { postZodSchema } from "./post.validation";
 import { userAuth } from "../../middlewares/auth";
 import fileUploadHandler from "../../middlewares/fileUploadHandler";
@@ -14,6 +14,8 @@ router.post(
   fileUploadHandler(),
   createNewPost,
 );
+
+router.get("/", userAuth(), getAllPost);
 
 router.delete("/:id", userAuth(), deletePost);
 

@@ -6,24 +6,29 @@
     "auditLog": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\.18e8aa691f50f298f39b6b133a2e9d2e6d59e67f-audit.json",
     "files": [
         {
-            "date": 1784036171129,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-19-error.log",
-            "hash": "a6f498a21bdc9210c7933758b39f38e60ef32a2f401276f619dfa28bc80c3234"
+            "date": 1784115188767,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\15-07-2026-17-error.log",
+            "hash": "b1632d0639159c36075fe347901f9e783b45f5062c16cee8b0e0497b328a211c"
         },
         {
-            "date": 1784039109406,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-20-error.log",
-            "hash": "039a3eb87aae2dd8987341227e3ceeaad3eb713cf61e863ba69f02b697df38f3"
+            "date": 1784118490418,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\15-07-2026-18-error.log",
+            "hash": "867bab6fc32750bc0221b76c29fc4b2abec384c8494d7804b1f229f931e1f3c5"
         },
         {
-            "date": 1784041264998,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-21-error.log",
-            "hash": "3c3383dd6abc1f0545631a464f6ac5d62316ba67778bcd39941001fad823a4c3"
+            "date": 1784122357840,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\15-07-2026-19-error.log",
+            "hash": "5149f1030c6104ed9905e67dc6080e0fbed1166091fd77860f1e15994cb99298"
         },
         {
-            "date": 1784044829128,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\14-07-2026-22-error.log",
-            "hash": "99f58a8a54ed6436af248f42abf17ca8ba865f59877000a1d123494753ab9aed"
+            "date": 1784127674813,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\15-07-2026-21-error.log",
+            "hash": "c6259d69c27fe29990a16b39929c220b59d249d8863b7b42b356cdde39a22a88"
+        },
+        {
+            "date": 1784131241717,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\error\\15-07-2026-22-error.log",
+            "hash": "0ba66e55c8f4b2f69f438762d4f68bf5b0a58d58cf339932eedebd4c77e89e58"
         }
     ],
     "hashType": "sha256"

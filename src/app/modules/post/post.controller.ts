@@ -2,7 +2,11 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
-import { createPostService, deletePostService } from "./post.service";
+import {
+  createPostService,
+  deletePostService,
+  getAllPostService,
+} from "./post.service";
 
 // create new post
 export const createNewPost = catchAsync(async (req: Request, res: Response) => {
@@ -32,6 +36,20 @@ export const createNewPost = catchAsync(async (req: Request, res: Response) => {
     success: true,
     statusCode: StatusCodes.OK,
     message: "Post created successfully",
+    data: result,
+  });
+});
+
+// get all post
+export const getAllPost = catchAsync(async (req: Request, res: Response) => {
+  const authorId = (req as any).decodedUser.id;
+
+  const result = await getAllPostService(authorId);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: StatusCodes.OK,
+    message: "Post fetched successfully",
     data: result,
   });
 });

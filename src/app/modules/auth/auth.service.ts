@@ -60,6 +60,7 @@ export const loginService = async (payload: any) => {
   const isExistUser = await dbClient.user.findUnique({
     where: { email },
   });
+
   if (!isExistUser) {
     throw new ApiError(
       StatusCodes.BAD_REQUEST,

@@ -1,121 +1,55 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import catchAsync from "../../../../shared/catchAsync";
-import sendResponse from "../../../../shared/sendResponse";
+import catchAsync from "../../../shared/catchAsync";
+import sendResponse from "../../../shared/sendResponse";
 import {
-  deleteUserService,
-  forgotPasswordService,
-  resendCodeService,
-  setPasswordService,
-  signInService,
-  signupService,
-  verifyEmailToDB,
-  verifyOtpService,
-} from "./userAuth.service";
+  createReplyService,
+  getRepliesService,
+  deleteReplyService,
+} from "./reply.service";
 
-// sign up new user
-export const signUpNewUser = catchAsync(async (req: Request, res: Response) => {
-  const result = await signupService(req.body);
+// Create a reply
+export const createReply = catchAsync(async (req: Request, res: Response) => {
+  const { commentId } = req.params as { commentId: string };
+  const { content } = req.body;
+  const userId = (req as any).decodedUser.id;
+
+  const result = await createReplyService(commentId, content, userId);
 
   sendResponse(res, {
     success: true,
-    statusCode: StatusCodes.OK,
-    message: "Signup successfully",
+    statusCode: StatusCodes.CREATED,
+    message: "Reply created successfully",
     data: result,
   });
 });
 
-// verify email
-export const verifyEmailOtp = catchAsync(
-  async (req: Request, res: Response) => {
-    const result = await verifyEmailToDB(req.body);
+// Get replies for a comment
+export const getReplies = catchAsync(async (req: Request, res: Response) => {
+  const { commentId } = req.params as { commentId: string };
+  const userId = (req as any).decodedUser.id;
 
-    sendResponse(res, {
-      success: true,
-      statusCode: StatusCodes.OK,
-      message: "Email verified successfully",
-      data: {
-        token: result.createToken,
-        user: result.isExistUser,
-      },
-    });
-  },
-);
-
-// resend code
-export const resendCode = catchAsync(async (req: Request, res: Response) => {
-  const result = await resendCodeService(req.body.email);
+  const result = await getRepliesService(commentId, req.query, userId);
 
   sendResponse(res, {
     success: true,
     statusCode: StatusCodes.OK,
-    message: "Resend code successfully",
+    message: "Replies retrieved successfully",
+    data: result,
   });
 });
 
-// user sing in
-export const userLogin = catchAsync(async (req: Request, res: Response) => {
-  const result = await signInService(req.body);
+// Delete a reply
+export const deleteReply = catchAsync(async (req: Request, res: Response) => {
+  const { replyId } = req.params as { replyId: string };
+  const userId = (req as any).decodedUser.id;
+
+  const result = await deleteReplyService(replyId, userId);
 
   sendResponse(res, {
     success: true,
     statusCode: StatusCodes.OK,
-    message: "User login successfully",
-    data: {
-      token: result.createToken,
-      user: result.isExistUser,
-    },
+    message: "Reply deleted successfully",
+    data: result,
   });
 });
-
-// forgot password
-export const forgotPassword = catchAsync(
-  async (req: Request, res: Response) => {
-    await forgotPasswordService(req.body);
-
-    sendResponse(res, {
-      success: true,
-      statusCode: StatusCodes.OK,
-      message: "Password reset successfully",
-    });
-  },
-);
-
-// verify otp
-export const verifyOtp = catchAsync(async (req: Request, res: Response) => {
-  await verifyOtpService(req.body);
-
-  sendResponse(res, {
-    success: true,
-    statusCode: StatusCodes.OK,
-    message: "OTP verified successfully",
-  });
-});
-
-// set password
-export const setPassword = catchAsync(async (req: Request, res: Response) => {
-  const result = await setPasswordService(req.body);
-
-  sendResponse(res, {
-    success: true,
-    statusCode: StatusCodes.OK,
-    message: "Password set successfully",
-    data: result.createToken,
-  });
-});
-
-// Delete permanent User
-export const permanentDeleteUser = catchAsync(
-  async (req: Request, res: Response) => {
-    const id = req.params.id;
-
-    const result = await deleteUserService(id);
-
-    sendResponse(res, {
-      success: true,
-      statusCode: StatusCodes.OK,
-      message: "User deleted successfully",
-      data: result,
-    });
-  },
-);

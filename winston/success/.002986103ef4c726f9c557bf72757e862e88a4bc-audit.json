@@ -6,24 +6,29 @@
     "auditLog": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\.002986103ef4c726f9c557bf72757e862e88a4bc-audit.json",
     "files": [
         {
-            "date": 1784036171125,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\14-07-2026-19-success.log",
-            "hash": "c0227549bc7b62de6535349898e8368df4a1572b1fbf5c0a785f2bc5d1b766d7"
+            "date": 1784115188760,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\15-07-2026-17-success.log",
+            "hash": "552fad092c93adcf34fdf2a981adba354054b663f8d1f7b8db7677a9eb8f0eb4"
         },
         {
-            "date": 1784039109403,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\14-07-2026-20-success.log",
-            "hash": "cefd12794004f22e2e38215e1c823a99e35733c067c304c3221bb564a03862b8"
+            "date": 1784118490411,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\15-07-2026-18-success.log",
+            "hash": "84d0f6f531d7d54de7a2b35df066b03bdfcbb94e5f5c288f71ccfa22af563ae5"
         },
         {
-            "date": 1784041264995,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\14-07-2026-21-success.log",
-            "hash": "8b117fd28150cfe976a19fb20278b7fa9b61833f0343bb2059b7785615b7b11f"
+            "date": 1784122357810,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\15-07-2026-19-success.log",
+            "hash": "e6b5f333dcba3f14698541052916fa0930f310cf0ca4d24a79e7259b426894e1"
         },
         {
-            "date": 1784044829126,
-            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\14-07-2026-22-success.log",
-            "hash": "060b6aef146d9bd16e865c568c4025872fc72610d052eadb4e886c44572af556"
+            "date": 1784127674796,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\15-07-2026-21-success.log",
+            "hash": "9597d2c8b90b827da439827c4bd8016f8a8661c38cdb67ece6cee25682900e23"
+        },
+        {
+            "date": 1784131241713,
+            "name": "C:\\Users\\kawsa\\Desktop\\assessment-task\\buddyscript-backend\\winston\\success\\15-07-2026-22-success.log",
+            "hash": "a449ee86cd7d812a729b6894a53b13d7e7d40138826816066947b064cd2b27d8"
         }
     ],
     "hashType": "sha256"
